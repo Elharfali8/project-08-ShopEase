@@ -3,6 +3,7 @@ import { FadeDown } from './FadeDown'
 import hero from '@/assets/hero-sm.png'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Button } from './ui/button'
 
 const Hero = () => {
   return (
@@ -21,9 +22,10 @@ const Hero = () => {
                     </div>
                   </FadeDown>
                   <div className='my-4 lg:my-6'>
-                          <Link href='/products' className='py-2 lg:py-3 px-6 lg:px-10 rounded-lg bg-foreground text-white font-medium text-lg lg:text-xl dark:text-black'>
-                              Shop Now
-                          </Link>
+                      <Button className='py-3 lg:py-6 px-10 lg:px-20 md:text-lg lg:text-xl rounded-2xl' asChild>
+                          <Link href='/products'>
+                          Shop Now</Link>
+                      </Button>
                   </div>
               </div>
               {/*  */}

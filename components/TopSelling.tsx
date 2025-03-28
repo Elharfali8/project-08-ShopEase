@@ -1,19 +1,19 @@
 import React from 'react'
 import SectionTitle from './SectionTitle'
 import { MainCarousel } from './MainCarousel'
-import { newArrivals } from '@/utils/data'
-import Link from 'next/link'
 import { Button } from './ui/button'
+import Link from 'next/link'
+import { topSelling } from '@/utils/data'
 
-const NewArrivals = () => {
+const TopSelling = () => {
   return (
-      <section className='py-10 lg:py-14'>
-          <SectionTitle text='new arrivals' />
+    <section className='py-10 lg:py-14'>
+          <SectionTitle text='top selling' />
           <div className='container main-container grid place-items-center'>
-        <MainCarousel data={newArrivals} />
+        <MainCarousel data={topSelling} />
         <div className='grid place-items-center mt-4 lg:mt-8'>
               <Button className='py-3 lg:py-6 px-10 lg:px-20 md:text-lg capitalize lg:text-xl rounded-2xl' variant='outline' asChild>
-                          <Link href='/products?new-arrivals=true'>
+                          <Link href='/products?top-selling=true'>
                           view all</Link>
                       </Button>
           </div>
@@ -22,4 +22,4 @@ const NewArrivals = () => {
   )
 }
 
-export default NewArrivals
+export default TopSelling
