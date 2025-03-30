@@ -24,7 +24,7 @@ const HomePage = () => {
       </div>
       <Testimonials />
       <div className='relative '>
-        <div className='mt-20 lg:mt-28 h-[180px] px-4 lg:px-2 xl:px-0 border-[2px]'>
+        <div className='mt-20 lg:mt-28 h-[180px] px-4 lg:px-2 xl:px-0 border-t-[2px]'>
           <Contact />
           </div>
       </div>
