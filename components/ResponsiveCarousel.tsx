@@ -30,7 +30,8 @@ const ResponsiveCarousel = ({data}: {data: Testimonial[]}) => {
 
   return (
       <div className=" overflow-hidden">
-          <div className="relative container main-container w-full overflow-hidden  mx-auto p-4">
+          <div className="container main-container">
+          <div className="relative   w-full max-w-[1200px]  overflow-hidden  mx-auto p-4">
       {/* Buttons */}
       <div className="absolute top-1/2 left-2 transform -translate-y-1/2 z-10">
         <button
@@ -61,7 +62,7 @@ const ResponsiveCarousel = ({data}: {data: Testimonial[]}) => {
                   {data.map((item) => {
                       const {id, rate, description, title, name} = item
                       return (
-                          <div key={id} className="min-w-[calc(100%/1)] sm:min-w-[calc(100%/2)] md:min-w-[calc(100%/3)] lg:min-w-[calc(100%/4)] p-4 bg-gray-100 rounded-lg shadow-md">
+                          <div key={id} className="min-w-[calc(100%/1)] sm:min-w-[calc(100%/2)] md:min-w-[calc(100%/3)] lg:min-w-[calc(100%/4)] p-4 bg-card rounded-lg shadow-md">
                               <StarRating rate={rate} />
                               <h2 className="font-bold text-xl lg:text-2xl mt-2">{name}</h2>
                         <h3 className="text-lg font-semibold">{title}</h3>
@@ -71,6 +72,8 @@ const ResponsiveCarousel = ({data}: {data: Testimonial[]}) => {
         })}
       </motion.div>
     </div>
+          </div>
+          
     </div>
   );
 };
