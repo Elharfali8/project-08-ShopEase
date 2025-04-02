@@ -12,7 +12,7 @@ export type Testimonial = {
 };
 
 type Props = {
-    id: number;
+    id: string;
     img: StaticImageData;
     desc: string;
     rate: string;
@@ -28,14 +28,14 @@ type Props = {
 // https://ibb.co/FkXVPGCL
 export const newArrivals: Props[] = [
     {
-        id: 1,
+        id: uuidv4(),
         img: tShirt,
         desc: 'T-SHIRT WITH TAPE DETAILS',
         rate: '4.5/5',
         price: 120
     },
     {
-        id: 2,
+        id: uuidv4(),
         img: frame33,
         desc: 'SKINNY FIT JEANS',
         rate: '3.5/5',
@@ -44,7 +44,7 @@ export const newArrivals: Props[] = [
         promo: 20
     },
     {
-        id: 3,
+        id: uuidv4(),
         img: frame34,
         desc: 'CHECKERED SHIRT',
         rate: '4.5/5',
@@ -52,7 +52,7 @@ export const newArrivals: Props[] = [
 
     },
     {
-        id: 4,
+        id: uuidv4(),
         img: frame38,
         desc: 'SLEEVE STRIPED T-SHIRT',
         rate: '4.5/5',
@@ -68,7 +68,7 @@ export const newArrivals: Props[] = [
 // https://ibb.co/RGXRJwwx
 export const topSelling: Props[] = [
     {
-        id: 1,
+        id: uuidv4(),
         img: image7,
         desc: 'VERTICAL STRIPED SHIRT',
         rate: '5.0/5',
@@ -77,21 +77,21 @@ export const topSelling: Props[] = [
         promo: 20
     },
     {
-        id: 2,
+        id: uuidv4(),
         img: image8,
         desc: 'COURAGE GRAPHIC T-SHIRT',
         rate: '4.0/5',
         price: 124,
     },
     {
-        id: 3,
+        id: uuidv4(),
         img: image9,
         desc: 'LOOSE FIT BERMUDA SHORTS',
         rate: '3.0/5',
         price: 80,
     },
     {
-        id: 4,
+        id: uuidv4(),
         img: image10,
         desc: 'FADED SKINNY JEANS',
         rate: '4.5/5',

@@ -14,7 +14,7 @@ import Link from "next/link";
 
 
 type Props = {
-    id: number;
+    id: string;
     img: StaticImageData;
     desc: string;
     rate: string;

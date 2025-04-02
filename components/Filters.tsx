@@ -65,7 +65,7 @@ const Filters = ({
               </ul>
           </motion.div>
 
-          <div className={`border-[1px] my-3 lg:my-5 ${showFilters ? 'block' : 'hidden'}`} />
+          <div className={`border-[1px] mt-3 lg:mt-5 ${showFilters ? 'block' : 'hidden'}`} />
 
           {showFilters && (
               <div >
