@@ -2,6 +2,7 @@ import { frame33, frame34, frame38, image10, image7, image8, image9, tShirt } fr
 import { StaticImageData } from "next/image";
 import { v4 as uuidv4 } from 'uuid';
 
+
 export type Testimonial = {
   id: string;
   name: string;
@@ -144,3 +145,6 @@ export const testimonials: Testimonial[] = [
     rate: '4.8',
   },
 ];
+
+export const categories: string[] = ['all', 'men', 'women', 'children', 'gym']
+export const types: string[] = ['all', 't-shirts', 'hoodie', 'jean', 'pants', 'shirts']

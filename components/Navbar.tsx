@@ -15,8 +15,8 @@ const Navbar = () => {
     
 
   return (
-      <nav className=' h-20 grid place-items-center shadow-md dark:shadow-gray-700 z-[99]'>
-          <div className="container main-container flex items-center justify-between">
+      <nav className=' h-20 grid place-items-center shadow-md dark:shadow-gray-700 z-[99] '>
+          <div className="container main-container flex items-center justify-between ">
               <Link href='/' className='text-2xl lg:text-4xl font-extrabold'>
                 ShopEase
               </Link>
