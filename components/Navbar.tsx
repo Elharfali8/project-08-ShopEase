@@ -9,6 +9,8 @@ import { CircleUser, ShoppingCart} from 'lucide-react'
 import { ToggleTheme } from './ToggleTheme'
 
 import { DropdownMenuToggle } from './DropdownMenuToggle'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import CustomSignInButton from './CustomSignInButton'
 
 const Navbar = () => {
     const pathname = usePathname()
@@ -38,9 +40,12 @@ const Navbar = () => {
                   <Button variant='outline' size='icon' >
                       <ShoppingCart />
                   </Button>
-                  <Button variant='outline' size='icon' >
-                      <CircleUser />
-                  </Button>
+                  <div className='grid place-items-center'>
+                  <SignedIn>
+                        <UserButton afterSignOutUrl="/" />
+                    </SignedIn>
+                    <CustomSignInButton />
+                  </div>
               </div>
               <div className='lg:hidden grid place-items-center '>
                   <DropdownMenuToggle  />

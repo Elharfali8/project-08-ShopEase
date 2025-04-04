@@ -1,5 +1,6 @@
 'use client'
 
+import { AddToCartButton } from '@/components/AddToCartButton'
 import { BreadCrumbComponent } from '@/components/BreadCrumbComponent'
 import ProductCard from '@/components/ProductCard'
 import SectionTitle from '@/components/SectionTitle'
@@ -7,16 +8,33 @@ import StarRating from '@/components/StarRating'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { newArrivals, sizes, topSelling } from '@/utils/data'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
+
+type Product = {
+    id: string;
+    img: StaticImageData;
+    desc: string;
+    rate: string;
+    price: number;
+    oldPrice?: number;
+    promo?: number
+}
+
 
 const SingleProduct = () => {
   const { id } = useParams()
   const products = [...newArrivals, ...topSelling]
   const product = products.find((item) => item.id === id)
+  const [cart, setCart] = useState<Product[]>([]);
   const [sizeState, setSizeState] = useState<string>('small')
   const [amount, setAmount] = useState<number>(1)
+
+  const handleAddToCart = (product: Product) => {
+    setCart(prev => [...prev, { ...product }]);
+    console.log('Added to cart:', product);
+  };
 
   const handleAmount = (value: string) => {
     setAmount(prevAmount => {
@@ -35,7 +53,7 @@ const SingleProduct = () => {
   }
 
   return (
-    <main className="min-h-[calc(100vh-120px)]">
+    <main className="min-h-[calc(100vh-80px)]">
       <div className="container main-container pb-8 lg:pb-14">
         <BreadCrumbComponent page="products" />
         
@@ -109,9 +127,7 @@ const SingleProduct = () => {
                     </Button>
               </div>
               <div className=' xl:col-span-4 '>
-                <Button className='w-full text-lg lg:text-xl cursor-pointer' size='lg' >
-                Add To Cart
-               </Button>
+                <AddToCartButton product={product} addToCart={handleAddToCart} />
               </div>
             </div>
           </div>

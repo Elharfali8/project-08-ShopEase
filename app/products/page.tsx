@@ -13,7 +13,7 @@ const ProductsPage = () => {
   const products = [...newArrivals, ...topSelling]
 
   return (
-    <main className="min-h-[calc(100vh-120px)]">
+    <main className="min-h-[calc(100vh-80px)]">
       <div className="container main-container">
         <BreadCrumbComponent page="products" />
         

@@ -3,7 +3,8 @@ import "./globals.css";
 import Providers from "./Providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import {ClerkProvider} from '@clerk/nextjs'
+import { Toaster } from "@/components/ui/sonner";
 
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+  <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
       <body
         className={` antialiased`}
@@ -24,8 +26,10 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-        </Providers>
+          </Providers>
+          <Toaster />
       </body>
-    </html>
+      </html>
+      </ClerkProvider>
   );
 }

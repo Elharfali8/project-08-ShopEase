@@ -5,7 +5,7 @@ import React from 'react'
 
 const TopSellingPage = () => {
   return (
-     <main className="min-h-[calc(100vh-120px)]">
+     <main className="min-h-[calc(100vh-80px)]">
           <div className="container main-container pb-8 lg:pb-14">
               <BreadCrumbComponent page="top selling" />
               <div >

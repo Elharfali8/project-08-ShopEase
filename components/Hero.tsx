@@ -7,7 +7,7 @@ import { Button } from './ui/button'
 
 const Hero = () => {
   return (
-      <section className='grid place-items-center min-h-[calc(100vh-120px)] bg-primary-foreground overflow-hidden' >
+      <section className='grid place-items-center min-h-[calc(100vh-80px)] bg-primary-foreground overflow-hidden' >
           <div className='container main-container grid items-center lg:grid-cols-2 gap-4'>
               <div className='py-8 lg:py-0'>
               <FadeDown
