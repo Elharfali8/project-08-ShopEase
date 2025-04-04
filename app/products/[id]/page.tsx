@@ -1,6 +1,8 @@
 'use client'
 
 import { BreadCrumbComponent } from '@/components/BreadCrumbComponent'
+import ProductCard from '@/components/ProductCard'
+import SectionTitle from '@/components/SectionTitle'
 import StarRating from '@/components/StarRating'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -34,7 +36,7 @@ const SingleProduct = () => {
 
   return (
     <main className="min-h-[calc(100vh-120px)]">
-      <div className="container main-container">
+      <div className="container main-container pb-8 lg:pb-14">
         <BreadCrumbComponent page="products" />
         
         <div className="grid lg:grid-cols-2 gap-8 items-center ">
@@ -112,6 +114,16 @@ const SingleProduct = () => {
                </Button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className='border w-full my-6 lg:my-12' />
+        <div>
+          <SectionTitle text='you might also like' />
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3'>
+            {newArrivals.map((item) => {
+                return <ProductCard key={item.id} {...item} />
+              })}
           </div>
         </div>
       </div>

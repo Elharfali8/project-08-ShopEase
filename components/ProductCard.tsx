@@ -16,7 +16,7 @@ type ProductsProps = {
 const ProductCard = ({ id, img, desc, rate, price, oldPrice, promo }: ProductsProps) => {
     
   return (
-      <Link href={`/products/${id}`} className='grid place-items-center'>
+      <Link href={`/products/${id}`} className='grid place-items-center transition-all ease-in-out duration-100 hover:bg-[#F0EEEd] p-4 rounded-xl hover:dark:text-black'>
           <Image
               src={img}
               alt={desc}
@@ -25,7 +25,7 @@ const ProductCard = ({ id, img, desc, rate, price, oldPrice, promo }: ProductsPr
               className='w-[295px] h-[298px] rounded-3xl'
           />
           <div className='flex flex-col items-center md:items-start  md:justify-start w-full px-6 '>
-              <h3 className='mt-2  text-lg lg:text-xl font-bold'>{desc}</h3>
+              <h3 className='mt-2  text-lg lg:text-xl font-bold '>{desc}</h3>
               <div className='flex items-center gap-3 lg:text-lg'>
                   <StarRating rate={rate} />
                   <span className='font-medium text-muted-foreground'>{rate}</span>
