@@ -12,7 +12,7 @@ import {
 import { usePathname } from "next/navigation";
 
 type Props = {
-  id?: number;
+  id?: string;
   page: string;
   name?: string
 }

@@ -3,8 +3,9 @@
 import { Settings2 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import { categories, types } from '@/utils/data'
+import { categories, colors, types } from '@/utils/data'
 import PriceSlider from './PriceSlider'
+import { AiOutlineStop } from "react-icons/ai";
 
 const Filters = ({
     showFilters, setShowFilters
@@ -12,11 +13,20 @@ const Filters = ({
     showFilters: boolean, 
     setShowFilters: React.Dispatch<React.SetStateAction<boolean>>
     }) => {
-    const [category, setCategory] = useState('all')
-    const [typeClothes, setTypeClothes] = useState('all')
+    const [category, setCategory] = useState<string>('all')
+    const [typeClothes, setTypeClothes] = useState<string>('all')
+    const [selectedColor, setSelectedColor] = useState<string>("all");
+    const colorClasses: Record<string, string> = {
+        black: 'bg-black',
+        white: 'bg-white',
+        red: 'bg-red-500',
+        blue: 'bg-blue-500',
+        green: 'bg-green-500',
+        brown: 'bg-amber-900',
+      };
     
   return (
-      <div className='lg:sticky top-4 '>
+      <div className='lg:sticky top-4 bg-'>
           <div className='flex items-center justify-between'>
               <h3 className='text-lg lg:text-xl font-semibold'>Filters</h3>
               <button 
@@ -73,6 +83,11 @@ const Filters = ({
               <PriceSlider  />
             </div>
           )}
+
+          <div className={`border-[1px] my-3 lg:my-5 ${showFilters ? 'block' : 'hidden'}`} />
+          
+         
+
       </div>
   )
 }
