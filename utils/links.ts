@@ -21,5 +21,9 @@ export const links: LinksProps[] = [
         title: 'new arrivals',
         path: '/new-arrivals'
     },
-
+    {
+        id: 4,
+        title: 'top selling',
+        path: '/top-selling'
+    },
 ]
