@@ -45,7 +45,10 @@ export function MainCarousel(
                         <CardContent>
                                       <Image
                                           src={img}
-                              alt="desc"
+                                alt="desc"
+                                width={220}
+                                height={320}
+                                className="w-[220px] h-[260px] object-cover rounded-4xl"
                                       />
                           </CardContent>
                           <CardFooter className="grid">

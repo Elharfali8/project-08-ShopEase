@@ -5,16 +5,18 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { Button } from './ui/button'
-import { CircleUser, ShoppingCart} from 'lucide-react'
+import {  ShoppingCart} from 'lucide-react'
 import { ToggleTheme } from './ToggleTheme'
 
 import { DropdownMenuToggle } from './DropdownMenuToggle'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { SignedIn, UserButton } from '@clerk/nextjs'
 import CustomSignInButton from './CustomSignInButton'
+import { CartDropdown } from './CartDropdown'
 
 const Navbar = () => {
     const pathname = usePathname()
     
+
 
   return (
       <nav className=' h-20 grid place-items-center shadow-md dark:shadow-gray-700 z-[99] '>
@@ -37,9 +39,7 @@ const Navbar = () => {
 
               <div className='hidden lg:flex items-center gap-3'>
                   <ToggleTheme />
-                  <Button variant='outline' size='icon' >
-                      <ShoppingCart />
-                  </Button>
+                  <CartDropdown />
                   <div className='grid place-items-center'>
                   <SignedIn>
                         <UserButton afterSignOutUrl="/" />

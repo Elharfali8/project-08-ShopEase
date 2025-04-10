@@ -3,9 +3,9 @@ import ProductCard from "./ProductCard";
 
 type ProductsProps = {
     id: string;
-    img: StaticImageData;  // Change from string to StaticImageData
+    img: string;  
     desc: string;
-    rate: string;  // Change rate to string to match the provided data
+    rate: string;  
     price: number;
     oldPrice?: number;
     promo?: number;

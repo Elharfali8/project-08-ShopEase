@@ -5,7 +5,7 @@ import StarRating from './StarRating';
 
 type ProductsProps = {
     id: string;
-    img: StaticImageData;  
+    img: string;  
     desc: string;
     rate: string;  
     price: number;

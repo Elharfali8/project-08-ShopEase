@@ -15,10 +15,11 @@ type Props = {
   id?: string;
   page: string;
   name?: string
+  cart?:boolean
 }
 
 export function BreadCrumbComponent(
-  {id, page, name} : Props
+  {id, page, name, cart} : Props
 ) {
   const pathname = usePathname()
 
@@ -34,6 +35,16 @@ export function BreadCrumbComponent(
         <BreadcrumbItem>
           <BreadcrumbLink href={`/${page}`} className={`text-lg lg:text-xl capitalize `}>{page}</BreadcrumbLink>
         </BreadcrumbItem>
+        {cart && (
+          <>
+            <BreadcrumbSeparator>
+          <Slash />
+          </BreadcrumbSeparator>
+          <BreadcrumbItem        className={`text-lg lg:text-xl capitalize `}>
+            cart
+          </BreadcrumbItem>
+          </>
+        )}
         {id && (
           <>
             <BreadcrumbSeparator>

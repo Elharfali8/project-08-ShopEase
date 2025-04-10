@@ -1,29 +1,17 @@
 import { SignedOut, SignInButton, useUser } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
-import { StaticImageData } from "next/image";
 import { toast } from "sonner"
+import { useAppDispatch } from "@/hooks";
+import { addProductToCart } from "@/features/cart/cartSlice";
 
 
-type Product = {
-  id: string;
-  img: StaticImageData;
-  desc: string;
-  rate: string;
-  price: number;
-  oldPrice?: number;
-  promo?: number;
-};
 
-type Props = {
-  product: Product;
-  addToCart: (product: Product) => void;
-};
-
-export const AddToCartButton = ({ product, addToCart }: Props) => {
+export const AddToCartButton = ({id, amount, size}: {id:string, amount:number, size: string}) => {
   const { user } = useUser();
+  const dispatch = useAppDispatch()
 
   const handleClick = () => {
-    addToCart(product);
+   dispatch(addProductToCart({id, amount, size}))
     toast.success('Product added successfully')
   };
 

@@ -24,17 +24,12 @@ type Product = {
 
 
 const SingleProduct = () => {
-  const { id } = useParams()
+  const { id } = useParams() as { id: string };
   const products = [...newArrivals, ...topSelling]
   const product = products.find((item) => item.id === id)
-  const [cart, setCart] = useState<Product[]>([]);
   const [sizeState, setSizeState] = useState<string>('small')
   const [amount, setAmount] = useState<number>(1)
 
-  const handleAddToCart = (product: Product) => {
-    setCart(prev => [...prev, { ...product }]);
-    console.log('Added to cart:', product);
-  };
 
   const handleAmount = (value: string) => {
     setAmount(prevAmount => {
@@ -127,7 +122,7 @@ const SingleProduct = () => {
                     </Button>
               </div>
               <div className=' xl:col-span-4 '>
-                <AddToCartButton product={product} addToCart={handleAddToCart} />
+                <AddToCartButton  id={id} amount={amount} size={sizeState} />
               </div>
             </div>
           </div>
