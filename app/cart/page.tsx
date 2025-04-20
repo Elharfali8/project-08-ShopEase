@@ -143,7 +143,7 @@ const page = () => {
                             </li>
                         </ul>
                         <div className='mt-6'>
-                            <Button className='w-full' size='lg'>
+                            <Button className='w-full rounded-lg' size='lg'>
                                 <Link href='/checkout'>Proceed to Checkout</Link>
                             </Button>
                         </div>
