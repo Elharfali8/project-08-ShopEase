@@ -8,19 +8,10 @@ import StarRating from '@/components/StarRating'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { newArrivals, sizes, topSelling } from '@/utils/data'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 
-type Product = {
-    id: string;
-    img: StaticImageData;
-    desc: string;
-    rate: string;
-    price: number;
-    oldPrice?: number;
-    promo?: number
-}
 
 
 const SingleProduct = () => {
@@ -29,6 +20,7 @@ const SingleProduct = () => {
   const product = products.find((item) => item.id === id)
   const [sizeState, setSizeState] = useState<string>('small')
   const [amount, setAmount] = useState<number>(1)
+  
 
 
   const handleAmount = (value: string) => {

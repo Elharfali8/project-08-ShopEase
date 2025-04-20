@@ -3,20 +3,40 @@
 import { BreadCrumbComponent } from '@/components/BreadCrumbComponent'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { decreaseAmount, increaseAmount, removeFromCart } from '@/features/cart/cartSlice'
+import { calcTotalPrice, decreaseAmount, increaseAmount, removeFromCart } from '@/features/cart/cartSlice'
 import { useAppDispatch, useAppSelector } from '@/hooks'
+import { useUser } from '@clerk/clerk-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const page = () => {
-    const { cart } = useAppSelector((store) => store.cart)
+    const { cart, totalPrice } = useAppSelector((store) => store.cart)
+    const { user } = useUser();
     const dispatch = useAppDispatch()
+    const deliveryFee = 15;
+    const totalWithDelivery = totalPrice + deliveryFee;
+    
+    useEffect(() => {
+        dispatch(calcTotalPrice());
+    }, [cart, dispatch]);
+
+    if (!user) {
+        return (
+            <main className="min-h-[calc(100vh-80px)] grid place-items-center p-4 text-center">
+                <div>
+                    <h1 className='text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4'>You have to login first</h1>
+                    <Button asChild className='capitalize px-6 py-2 text-base md:text-lg'>
+                        <Link href='/products'>Explore Products</Link>
+                    </Button>
+                </div>
+            </main>
+        )
+    }
     
     if (cart.length < 1) {
         return (
             <main className="min-h-[calc(100vh-80px)] grid place-items-center p-4 text-center">
-                <Image src="/images/image-7.png" alt="Empty cart" width={200} height={200} className="mx-auto mb-4" />
                 <div>
                     <h1 className='text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4'>Your cart is empty!</h1>
                     <Button asChild className='capitalize px-6 py-2 text-base md:text-lg'>
@@ -99,6 +119,36 @@ const page = () => {
                         </div>
                     )
                 })}
+            <div className=' mt-6 lg:mt-10 flex items-center justify-end '>
+                    <div className="border p-6 rounded-2xl shadow-md w-[400px]">
+                        <h3 className=' font-semibold text-xl lg:text-2xl'>order summary</h3>
+                        <ul className='grid gap-3 mt-4'>
+                            <li className='flex items-center justify-between'>
+                                <span className='text-md md:text-lg'>Total Items:</span>
+                                <span className='font-semibold text-lg md:text-xl'>{cart?.length}</span>
+                            </li>
+                            <li className='flex items-center justify-between'>
+                                <span className='text-md md:text-lg'>Delivery Fee:</span>
+                                <span className='font-semibold text-lg md:text-xl'>
+                                    $15
+                                </span>
+
+                            </li>
+                            <div className='my-2 border w-full' />
+                            <li className='flex items-center justify-between'>
+                                <span className='text-lg md:text-xl'>Total Amount:</span>
+                                <span className='font-semibold text-lg md:text-xl'>
+                                ${(totalWithDelivery).toFixed(2)}
+                                </span>
+                            </li>
+                        </ul>
+                        <div className='mt-6'>
+                            <Button className='w-full' size='lg'>
+                                <Link href='/checkout'>Proceed to Checkout</Link>
+                            </Button>
+                        </div>
+                    </div>
+            </div>
             </div>
         </main>
     )
